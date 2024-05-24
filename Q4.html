@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+        .loading {
+            color: black;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .loading-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            color: #191654;
+        }
+
+        #svg {
+            height: 100px;
+            width: 100px;
+            stroke: black;
+            fill-opacity: 0;
+            stroke-width: 5px;
+            stroke-dasharray: 4500;
+            animation: draw 8s ease;
+        }
+
+        @keyframes draw {
+            0% {
+                stroke-dashoffset: 4500;
+                fill: none;
+            }
+
+            100% {
+                stroke-dashoffset: 0;
+                fill: black;
+            }
+        }
+
+        .name-container {
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .logo-name {
+            color: black;
+            font-size: 20px;
+            letter-spacing: 12px;
+            margin-left: 20px;
+            font-weight: bolder;
+            text-align: center;
+        }
+
+        #svg img {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="loading-page">
+        <svg id="svg" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+                d="M99.1 105.4C79 114 68.2 127.2 65.2 144.8c-2.4 14.1-.7 23.2 2 29.4c2.8 6.3 7.9 12.4 16.7 18.6c19.2 13.4 48.3 22.1 84.9 32.5c1 .3 1.9 .6 2.9 .8c32.7 9.3 72 20.6 100.9 40.7c15.7 10.9 29.9 25.5 38.6 45.1c8.8 19.8 10.8 42 6.6 66.3c-7.3 42.5-35.3 71.7-71.8 87.3c-35.4 15.2-79.1 17.9-123.7 10.9l-.2 0 0 0c-24-3.9-62.7-17.1-87.6-25.6c-4.8-1.7-9.2-3.1-12.8-4.3C5.1 440.8-3.9 422.7 1.6 405.9s23.7-25.8 40.5-20.3c4.9 1.6 10.2 3.4 15.9 5.4c25.4 8.6 56.4 19.2 74.4 22.1c36.8 5.7 67.5 2.5 88.5-6.5c20.1-8.6 30.8-21.8 33.9-39.4c2.4-14.1 .7-23.2-2-29.4c-2.8-6.3-7.9-12.4-16.7-18.6c-19.2-13.4-48.3-22.1-84.9-32.5c-1-.3-1.9-.6-2.9-.8c-32.7-9.3-72-20.6-100.9-40.7c-15.7-10.9-29.9-25.5-38.6-45.1c-8.8-19.8-10.8-42-6.6-66.3l31.5 5.5L2.1 133.9C9.4 91.4 37.4 62.2 73.9 46.6c35.4-15.2 79.1-17.9 123.7-10.9c13 2 52.4 9.6 66.6 13.4c17.1 4.5 27.2 22.1 22.7 39.2s-22.1 27.2-39.2 22.7c-11.2-3-48.1-10.2-60.1-12l4.9-31.5-4.9 31.5c-36.9-5.8-67.5-2.5-88.6 6.5z" />
+        </svg>
+
+        <div class="name-container">
+
+            <div class="logo-name">Sir DeDo <span class="green">Marks</span></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+        gsap.fromTo(
+            ".loading-page",
+            { opacity: 1 },
+            {
+                opacity: 0,
+                display: "none",
+                duration: 1.5,
+                delay: 3.5,
+            }
+        );
+
+        gsap.fromTo(
+            ".logo-name",
+            {
+                y: 50,
+                opacity: 0,
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 2,
+                delay: 0.5,
+            }
+        );
+        jQuery(document).ready(function ($) {
+            //set animation timing
+            var animationDelay = 2500,
+                //loading bar effect
+                barAnimationDelay = 3800,
+                barWaiting = barAnimationDelay - 3000, //3000 is the duration of the transition on the loading bar - set in the scss/css file
+                //letters effect
+                lettersDelay = 50,
+                //type effect
+                typeLettersDelay = 150,
+                selectionDuration = 500,
+                typeAnimationDelay = selectionDuration + 800,
+                //clip effect 
+                revealDuration = 600,
+                revealAnimationDelay = 1500;
+
+            initHeadline();
+
+
+            function initHeadline() {
+                //insert <i> element for each letter of a changing word
+                singleLetters($('.headline.letters').find('b'));
+                //initialise headline animation
+                animateHeadline($('.headline'));
+            }
+
+            function singleLetters($words) {
+                $words.each(function () {
+                    var word = $(this),
+                        letters = word.text().split(''),
+                        selected = word.hasClass('is-visible');
+                    for (i in letters) {
+                        if (word.parents('.rotate-2').length > 0) letters[i] = '<em>' + letters[i] + '</em>';
+                        letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>' : '<i>' + letters[i] + '</i>';
+                    }
+                    var newLetters = letters.join('');
+                    word.html(newLetters);
+                });
+            }
+
+            function animateHeadline($headlines) {
+                var duration = animationDelay;
+                $headlines.each(function () {
+                    var headline = $(this);
+
+                    if (headline.hasClass('loading-bar')) {
+                        duration = barAnimationDelay;
+                        setTimeout(function () { headline.find('.words-wrapper').addClass('is-loading') }, barWaiting);
+                    } else if (headline.hasClass('clip')) {
+                        var spanWrapper = headline.find('.words-wrapper'),
+                            newWidth = spanWrapper.width() + 10
+                        spanWrapper.css('width', newWidth);
+                    } else if (!headline.hasClass('type')) {
+                        //assign to .words-wrapper the width of its longest word
+                        var words = headline.find('.words-wrapper b'),
+                            width = 0;
+                        words.each(function () {
+                            var wordWidth = $(this).width();
+                            if (wordWidth > width) width = wordWidth;
+                        });
+                        headline.find('.words-wrapper').css('width', width);
+                    };
+
+                    //trigger animation
+                    setTimeout(function () { hideWord(headline.find('.is-visible').eq(0)) }, duration);
+                });
+            }
+
+            function hideWord($word) {
+                var nextWord = takeNext($word);
+
+                if ($word.parents('.headline').hasClass('type')) {
+                    var parentSpan = $word.parent('.words-wrapper');
+                    parentSpan.addClass('selected').removeClass('waiting');
+                    setTimeout(function () {
+                        parentSpan.removeClass('selected');
+                        $word.removeClass('is-visible').addClass('is-hidden').children('i').removeClass('in').addClass('out');
+                    }, selectionDuration);
+                    setTimeout(function () { showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
+
+                } else if ($word.parents('.headline').hasClass('letters')) {
+                    var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
+                    hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
+                    showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
+
+                } else if ($word.parents('.headline').hasClass('clip')) {
+                    $word.parents('.words-wrapper').animate({ width: '2px' }, revealDuration, function () {
+                        switchWord($word, nextWord);
+                        showWord(nextWord);
+                    });
+
+                } else if ($word.parents('.headline').hasClass('loading-bar')) {
+                    $word.parents('.words-wrapper').removeClass('is-loading');
+                    switchWord($word, nextWord);
+                    setTimeout(function () { hideWord(nextWord) }, barAnimationDelay);
+                    setTimeout(function () { $word.parents('.words-wrapper').addClass('is-loading') }, barWaiting);
+
+                } else {
+                    switchWord($word, nextWord);
+                    setTimeout(function () { hideWord(nextWord) }, animationDelay);
+                }
+            }
+
+            function showWord($word, $duration) {
+                if ($word.parents('.headline').hasClass('type')) {
+                    showLetter($word.find('i').eq(0), $word, false, $duration);
+                    $word.addClass('is-visible').removeClass('is-hidden');
+
+                } else if ($word.parents('.headline').hasClass('clip')) {
+                    $word.parents('.words-wrapper').animate({ 'width': $word.width() + 10 }, revealDuration, function () {
+                        setTimeout(function () { hideWord($word) }, revealAnimationDelay);
+                    });
+                }
+            }
+
+            function hideLetter($letter, $word, $bool, $duration) {
+                $letter.removeClass('in').addClass('out');
+
+                if (!$letter.is(':last-child')) {
+                    setTimeout(function () { hideLetter($letter.next(), $word, $bool, $duration); }, $duration);
+                } else if ($bool) {
+                    setTimeout(function () { hideWord(takeNext($word)) }, animationDelay);
+                }
+
+                if ($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
+                    var nextWord = takeNext($word);
+                    switchWord($word, nextWord);
+                }
+            }
+
+            function showLetter($letter, $word, $bool, $duration) {
+                $letter.addClass('in').removeClass('out');
+
+                if (!$letter.is(':last-child')) {
+                    setTimeout(function () { showLetter($letter.next(), $word, $bool, $duration); }, $duration);
+                } else {
+                    if ($word.parents('.headline').hasClass('type')) { setTimeout(function () { $word.parents('.words-wrapper').addClass('waiting'); }, 200); }
+                    if (!$bool) { setTimeout(function () { hideWord($word) }, animationDelay) }
+                }
+            }
+
+            function takeNext($word) {
+                return (!$word.is(':last-child')) ? $word.next() : $word.parent().children().eq(0);
+            }
+
+            function takePrev($word) {
+                return (!$word.is(':first-child')) ? $word.prev() : $word.parent().children().last();
+            }
+
+            function switchWord($oldWord, $newWord) {
+                $oldWord.removeClass('is-visible').addClass('is-hidden');
+                $newWord.removeClass('is-hidden').addClass('is-visible');
+            }
+
+        });
+    </script>
+</body>
+
+</html>
